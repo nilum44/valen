@@ -2,138 +2,113 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Will You Be My Valentine? 💘</title>
+<title>💖 Will You Be My Valentine? 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Poppins', sans-serif;
-        overflow: hidden;
-    }
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Comic Neue', cursive;
+    overflow: hidden;
+}
 
-    .card {
-        background: white;
-        padding: 40px;
-        border-radius: 25px;
-        text-align: center;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-        animation: pop 1s ease;
-        max-width: 400px;
-    }
+.box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    z-index: 2;
+}
 
-    @keyframes pop {
-        0% { transform: scale(0.4); opacity: 0; }
-        100% { transform: scale(1); opacity: 1; }
-    }
+h1 {
+    font-size: 34px;
+}
 
-    h1 {
-        font-family: 'Pacifico', cursive;
-        color: #ff2f6d;
-        font-size: 34px;
-    }
+p {
+    font-size: 20px;
+    margin: 15px 0;
+}
 
-    p {
-        font-size: 18px;
-        margin: 20px 0;
-    }
+button {
+    font-size: 20px;
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
 
-    button {
-        padding: 12px 28px;
-        border: none;
-        border-radius: 30px;
-        font-size: 16px;
-        cursor: pointer;
-        margin: 10px;
-        transition: 0.3s;
-    }
+.yes {
+    background: #ff4d6d;
+    color: white;
+}
 
-    .yes {
-        background: #ff2f6d;
-        color: white;
-    }
+.yes:hover {
+    transform: scale(1.2);
+}
 
-    .yes:hover {
-        transform: scale(1.15);
-        background: #ff004c;
-    }
+.no {
+    background: #eee;
+    position: absolute;
+}
 
-    .no {
-        background: #ccc;
-        position: absolute;
-    }
+.emoji {
+    position: absolute;
+    font-size: 28px;
+    animation: fall 6s linear infinite;
+}
 
-    .heart {
-        position: absolute;
-        font-size: 22px;
-        animation: float 6s linear infinite;
-    }
-
-    @keyframes float {
-        0% {
-            transform: translateY(100vh) scale(1);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-10vh) scale(1.6);
-            opacity: 0;
-        }
-    }
+@keyframes fall {
+    0% { transform: translateY(-10vh); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
 </style>
 </head>
 
 <body>
 
-<!-- Romantic Music -->
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2023/02/28/audio_39f6a6c6c5.mp3" type="audio/mpeg">
-</audio>
-
-<div class="card">
-    <h1>💖 Hey My Love 💖</h1>
+<div class="box">
+    <h1>🥰💘 Will You Be My Valentine? 💘🥰</h1>
     <p>
-        🌹 <b>[HER / HIS NAME]</b> 🌹<br><br>
-        From the moment you came into my life,  
-        everything feels brighter ✨💫<br><br>
-        💘 Will you be my Valentine? 💘
+        💕🌸 Hey <b>YOUR NAME</b> 🌸💕<br><br>
+        You are my 🥺💖 favorite person 💖🥺<br>
+        My heart goes 💓💓💓 when I see you 😍<br><br>
+        👉 Will you be mine? 💍💝
     </p>
 
-    <button class="yes" onclick="yesClick()">YES 😍💞</button>
-    <button class="no" id="noBtn">NO 🙈</button>
+    <button class="yes" onclick="yes()">YESSS 😍💖💋</button>
+    <button class="no" id="no">NO 😝🙈</button>
 </div>
 
 <script>
-function yesClick() {
-    alert("YAYYYY 💖🥰💍 You just made my heart the happiest ever 🌹✨");
+function yes() {
+    alert("YAYYYY 😍💘💍💖 I KNEW IT!!! You’re officially my Valentine 🥰🌹💞");
 }
 
-// NO button runs away
-const noBtn = document.getElementById("noBtn");
+const noBtn = document.getElementById("no");
 noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 100);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    noBtn.style.top = Math.random() * (window.innerHeight - 100) + "px";
 });
 
-// floating hearts
-const emojis = ["💖","💘","💕","❤️","😍","🌹"];
-for (let i = 0; i < 40; i++) {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(heart);
+// emoji rain
+const emojis = ["💖","💘","💕","😍","🥰","😘","💋","🌹","🫶","💓","💝","❤️‍🔥"];
+for (let i = 0; i < 60; i++) {
+    let e = document.createElement("div");
+    e.className = "emoji";
+    e.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(e);
 }
 </script>
 
 </body>
 </html>
-s
