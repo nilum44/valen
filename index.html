@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine? 💘</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        animation: pop 1s ease;
+        max-width: 400px;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.4); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+        font-family: 'Pacifico', cursive;
+        color: #ff2f6d;
+        font-size: 34px;
+    }
+
+    p {
+        font-size: 18px;
+        margin: 20px 0;
+    }
+
+    button {
+        padding: 12px 28px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.3s;
+    }
+
+    .yes {
+        background: #ff2f6d;
+        color: white;
+    }
+
+    .yes:hover {
+        transform: scale(1.15);
+        background: #ff004c;
+    }
+
+    .no {
+        background: #ccc;
+        position: absolute;
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 22px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(100vh) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-10vh) scale(1.6);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Romantic Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2023/02/28/audio_39f6a6c6c5.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>💖 Hey My Love 💖</h1>
+    <p>
+        🌹 <b>[HER / HIS NAME]</b> 🌹<br><br>
+        From the moment you came into my life,  
+        everything feels brighter ✨💫<br><br>
+        💘 Will you be my Valentine? 💘
+    </p>
+
+    <button class="yes" onclick="yesClick()">YES 😍💞</button>
+    <button class="no" id="noBtn">NO 🙈</button>
+</div>
+
+<script>
+function yesClick() {
+    alert("YAYYYY 💖🥰💍 You just made my heart the happiest ever 🌹✨");
+}
+
+// NO button runs away
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+// floating hearts
+const emojis = ["💖","💘","💕","❤️","😍","🌹"];
+for (let i = 0; i < 40; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
+s
